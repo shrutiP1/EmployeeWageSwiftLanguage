@@ -6,8 +6,11 @@ var employeeWage:Int = 0
 let WAGE_PER_HR = 20;
 var check:Int = 0 ;
 var totalEmployeeWage:Int = 0;
-for _ in 0...20
+var totalDays = 0;
+var totalEmpHrs:Int=0;
+while ( totalEmpHrs < 100 && totalDays < 20)
 {
+    totalDays = totalDays + 1;
     check = Int.random(in: 0...2)
     if(check == IS_FULL_TIME)
     {
@@ -21,8 +24,9 @@ for _ in 0...20
     {
         empHr = 0;
     }
+    totalEmpHrs = totalEmpHrs+empHr
     employeeWage = WAGE_PER_HR * empHr;
-    totalEmployeeWage = totalEmployeeWage + employeeWage;
+  totalEmployeeWage = totalEmployeeWage + employeeWage;
+    
 }
-print("Total Employee Wage for 20 days \(totalEmployeeWage)")
-
+print("Total Employee Wage \(totalEmployeeWage)")
