@@ -7,30 +7,26 @@ let WAGE_PER_HR = 20;
 var check:Int = 0 ;
 var totalEmployeeWage:Int = 0;
 var totalDays = 0;
-var totalEmpHrs:Int=0;
-func calculateEmploeeWage(Hours:Int)->Int
-    {
-        employeeWage = WAGE_PER_HR * Hours;
-        return employeeWage
-}
-while ( totalEmpHrs < 100 && totalDays < 20)
+var totalEmpHrs:Int = 0;
+struct Company_Details
 {
-    totalDays = totalDays+1;
-    check = Int.random(in: 0...2)
-    if(check == IS_FULL_TIME)
+    var name:String
+    var emp_wage_per_hour:Int
+    var emp_Hr:Int
+    var employee_wage:Int
+    
+    init(name:String,emp_wage_per_hour:Int,emp_Hr:Int)
     {
-        empHr = 8;
+        self.name = name;
+        self.emp_wage_per_hour = emp_wage_per_hour;
+        self.emp_Hr = emp_Hr
+        self.employee_wage = emp_wage_per_hour*emp_Hr;
     }
-    else if check == IS_PART_TIME
-    {
-        empHr = 4;
-    }
-    else
-    {
-        empHr = 0;
-    }
-    totalEmpHrs = totalEmpHrs+empHr
+    
+    
 }
-totalEmployeeWage = calculateEmploeeWage(Hours:totalEmpHrs)
-print("Total Employee Wage \(totalEmployeeWage)")
+let infosys = Company_Details(name:"Infosys",emp_wage_per_hour:20,emp_Hr:10)
+print("Employee Wage for \(infosys.name) is \(infosys.employee_wage)")
+let wipro = Company_Details(name:"Wipro",emp_wage_per_hour:10,emp_Hr:10)
+print("Employee Wage for \(wipro.name) is \(wipro.employee_wage)")
 
